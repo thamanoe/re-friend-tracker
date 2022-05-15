@@ -28,6 +28,14 @@ export class GuiModel {
                             "required": true
                         },
                         {
+                            "id": "nickname",
+                            "type": "text",
+                            "name": "Nickname",
+                            "width": 2,
+                            "required": true
+                           },
+                           
+                        {
                             "id":   "location",
                             "type": "autocomplete",
                             "name": "Location",
@@ -60,7 +68,17 @@ export class GuiModel {
                         {
                             "type": "okButton",
                             "name": "Ok"
-                        }
+                        },
+                        {
+                            "id": "group",
+                            "type": "autocomplete",
+                            "name": "Group",
+                            "url": "/group",
+                            "form": "GroupForm",
+                            "width": 2
+                           },
+                        
+                           
                     ]
                 },
                 {
@@ -118,12 +136,38 @@ export class GuiModel {
                         }
                     ]
                 },
+                {
+                    "id": "GroupForm",
+                    "title": "Group",
+                    "url": "/group",
+                    "formFieldList": [
+                    {
+                    "id": "name",
+                    "type": "text",
+                    "name": "GroupName",
+                    "width": 2,
+                    "required": true
+                    },
+                    {
+                    "type": "deleteButton",
+                    "name": "Delete"
+                    },
+                    {
+                    "type": "cancelButton",
+                    "name": "Cancel"
+                    },
+                    {
+                    "type": "okButton",
+                    "name": "Ok"
+                    }
+                    ]
+                   }
             ],
             "pageList": [
                 {
                     "id": "mainmenu",
                     "name": "MainMenu",
-                    "elementList": [
+                    "elementList":[
                         {
                             "type": "button",
                             "name": "Friends",
@@ -138,6 +182,21 @@ export class GuiModel {
                             "color": "yellow",
                             "page": "locationspage",
                         },
+                        {
+                            "type": "button",
+                            "name": "Groups",
+                            "icon": "fa-weixin",
+                            "color": "wisteria",
+                            "page": "groupspage",
+                        },
+                        {
+                            "type": "list",
+                        "icon": "fa-weixin",
+                        "color": "wisteria",
+                        "search": true,
+                        "url": "/group",
+                        "form": "GroupForm"},
+                          
                     ]
                 },
                 {
