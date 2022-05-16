@@ -5,6 +5,7 @@ export class GuiModel {
     */
 
     private _guiModel = {
+        
         "application": {
             "title": "Requirements Engineering Friend Tracker",
             "formList": [
@@ -101,6 +102,14 @@ export class GuiModel {
                             "type": "cancelButton",
                             "name": "Cancel"
                         },
+			       {
+                           			         "id":   "activity",
+                            			        "type": "autocomplete",
+                                                                 "name": "Activity",
+                                                                 "url": "/location/:locationKey/activity",
+                                                                 "width": 2
+                                                         },                        
+
                         {
                             "type": "okButton",
                             "name": "Ok"
@@ -133,7 +142,15 @@ export class GuiModel {
                         {
                             "type": "okButton",
                             "name": "Ok"
-                        }
+                        } ,                        {
+                            "id":   "location",
+                            "type": "autocomplete",
+                            "name": "Location",
+                            "url": "/location",
+                            "form": "LocationForm",
+                            "width": 2
+                        },                        
+
                     ]
                 },
                 {
@@ -254,12 +271,83 @@ export class GuiModel {
                         },
                     ]
                 },
+
+			                   {
+                    "id": "groupspage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "NewGroup",
+                            "icon": "fa-weixin",
+                            "color": "green",
+                            "form": {
+                                "form": "GroupForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-weixin",
+                            "color": "wisteria",
+                            "search": true,
+                            "url": "/group",
+                            "form": {
+                                "form": "GroupForm"
+                            }
+                        },                        
+                    ]
+                },
+                {
+                    "id": "activitypage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "EditFriend",
+                            "icon": "fa-user",
+                            "color": "green",
+                            "search": true,
+                            "url": "/friend",
+                            "form": {
+                                "form": "FriendForm"
+                            }
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "AddActivity",
+                            "icon": "fa-calendar-alt",
+                            "color": "green",
+                            "form": {
+                                "form": "AddActivityForm"
+                            }
+                        },     
+
+                        {
+                            "type": "list",
+                            "icon": "fa-calendar-alt",
+                            "color": "orange",
+                            "url": "/friend/:friendKey/activity",
+                            "search": true,
+                            "form": {
+                                "form": "ActivityForm"
+                            }
+                        },
+
             ]
         }
-    };
+    ]
+},
 
+    };
 
     get guiModel() {
         return this._guiModel;
     }
 }
+
+
+
